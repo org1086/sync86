@@ -321,7 +321,7 @@ func migrateToConfigV14(cfg *Configuration) {
 	// entry.
 	hasDefault := false
 	for _, raddr := range cfg.Options.DeprecatedRelayServers {
-		if raddr == "dynamic+https://relays.syncthing.net/endpoint" {
+		if raddr == "dynamic+https://relays.sync86.com/endpoint" {
 			for i, addr := range cfg.Options.RawListenAddresses {
 				if addr == "tcp://0.0.0.0:22000" {
 					cfg.Options.RawListenAddresses[i] = "default"
@@ -335,7 +335,7 @@ func migrateToConfigV14(cfg *Configuration) {
 
 	// Copy relay addresses into listen addresses.
 	for _, addr := range cfg.Options.DeprecatedRelayServers {
-		if hasDefault && addr == "dynamic+https://relays.syncthing.net/endpoint" {
+		if hasDefault && addr == "dynamic+https://relays.sync86.com/endpoint" {
 			// Skip the default relay address if we already have the
 			// "default" entry in the list.
 			continue
@@ -376,14 +376,14 @@ func migrateToConfigV14(cfg *Configuration) {
 		cfg.Folders[i].DeprecatedReadOnly = false
 	}
 	// v0.13-beta already had config version 13 but did not get the new URL
-	if cfg.Options.ReleasesURL == "https://api.github.com/repos/syncthing/syncthing/releases?per_page=30" {
-		cfg.Options.ReleasesURL = "https://upgrades.syncthing.net/meta.json"
+	if cfg.Options.ReleasesURL == "https://api86.github.com/repos/syncthing/syncthing/releases?per_page=30" {
+		cfg.Options.ReleasesURL = "https://upgrades.sync86.com/meta.json"
 	}
 }
 
 func migrateToConfigV13(cfg *Configuration) {
 	if cfg.Options.ReleasesURL == "https://api.github.com/repos/syncthing/syncthing/releases?per_page=30" {
-		cfg.Options.ReleasesURL = "https://upgrades.syncthing.net/meta.json"
+		cfg.Options.ReleasesURL = "https://upgrades.sync86.com/meta.json"
 	}
 }
 
@@ -407,9 +407,9 @@ func migrateToConfigV12(cfg *Configuration) {
 	var newDiscoServers []string
 	var useDefault bool
 	for _, addr := range cfg.Options.RawGlobalAnnServers {
-		if addr == "udp4://announce.syncthing.net:22026" {
+		if addr == "udp4://announce.sync86.com:22026" {
 			useDefault = true
-		} else if addr == "udp6://announce-v6.syncthing.net:22026" {
+		} else if addr == "udp6://announce-v6.sync86.com:22026" {
 			useDefault = true
 		} else {
 			newDiscoServers = append(newDiscoServers, addr)
