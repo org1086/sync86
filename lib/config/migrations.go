@@ -382,7 +382,7 @@ func migrateToConfigV14(cfg *Configuration) {
 }
 
 func migrateToConfigV13(cfg *Configuration) {
-	if cfg.Options.ReleasesURL == "https://api.github.com/repos/syncthing/syncthing/releases?per_page=30" {
+	if cfg.Options.ReleasesURL == "https://api86.github.com/repos/syncthing/syncthing/releases?per_page=30" {
 		cfg.Options.ReleasesURL = "https://upgrades.sync86.com/meta.json"
 	}
 }

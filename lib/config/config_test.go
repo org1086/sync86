@@ -644,7 +644,7 @@ func TestPrepare(t *testing.T) {
 }
 
 func TestCopy(t *testing.T) {
-	wrapper, wrapperCancel, err := copyAndLoad(testFs, "example.xml", device1)
+	wrapper, wrapperCancel, err := copyAndLoad(testFs, "example86.xml", device1)
 	defer wrapperCancel()
 	if err != nil {
 		t.Fatal(err)
@@ -864,8 +864,8 @@ func TestV14ListenAddressesMigration(t *testing.T) {
 		// Default listen plus non-default relays gets copied verbatim
 		{
 			{"tcp://0.0.0.0:22000"},
-			{"dynamic+https://other.example.com"},
-			{"tcp://0.0.0.0:22000", "dynamic+https://other.example.com"},
+			{"dynamic+https://other.example86.com"},
+			{"tcp://0.0.0.0:22000", "dynamic+https://other.example86.com"},
 		},
 		// Non-default listen plus default relays gets copied verbatim
 		{
@@ -876,8 +876,8 @@ func TestV14ListenAddressesMigration(t *testing.T) {
 		// Default stuff gets sucked into "default", the rest gets copied
 		{
 			{"tcp://0.0.0.0:22000", "tcp://1.2.3.4:22000"},
-			{"dynamic+https://relays.sync86.com/endpoint", "relay://other.example.com"},
-			{"default", "tcp://1.2.3.4:22000", "relay://other.example.com"},
+			{"dynamic+https://relays.sync86.com/endpoint", "relay://other.example86.com"},
+			{"default", "tcp://1.2.3.4:22000", "relay://other.example86.com"},
 		},
 	}
 
@@ -992,7 +992,7 @@ func TestGetDevice(t *testing.T) {
 
 func TestSharesRemovedOnDeviceRemoval(t *testing.T) {
 	t.Skip("to fix: test hangs")
-	wrapper, wrapperCancel, err := copyAndLoad(testFs, "example.xml", device1)
+	wrapper, wrapperCancel, err := copyAndLoad(testFs, "example86.xml", device1)
 	defer wrapperCancel()
 	if err != nil {
 		t.Errorf("Failed: %s", err)
@@ -1563,7 +1563,7 @@ func TestUntrustedIntroducer(t *testing.T) {
 // Verify that opening a config with myID == protocol.EmptyDeviceID doesn't add that ID to the config.
 // Done in various places where config is needed, but the device ID isn't known.
 func TestLoadEmptyDeviceID(t *testing.T) {
-	temp, err := copyToTmp(testFs, "example.xml")
+	temp, err := copyToTmp(testFs, "example86.xml")
 	if err != nil {
 		t.Fatal(err)
 	}
