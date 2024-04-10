@@ -1,9 +1,10 @@
-<modal id="restoreVersions" status="default" icon="fas fa-undo" heading="{{'Restore Versions' | translate}} ({{folderLabel(restoreVersions.folder)}})" large="yes" closeable="yes">
+<modal id="restoreVersions" status="default" icon="fas fa-undo"
+  heading="{{'Restore Versions' | translate}} ({{folderLabel(restoreVersions.folder)}})" large="yes" closeable="yes">
   <div class="modal-body">
     <!--
     Inform the user about loading data even before the tree is initialised
     to avoid confusion where nothing is displayed on the screen for a while.
-    Ref: https://forum.syncthing.net/t/reversed-date-in-search-filter/21369/3
+    Ref: https://forum.sync86.com/t/reversed-date-in-search-filter/21369/3
     -->
     <div ng-if="!restoreVersions.versions" translate>Loading data...</div>
     <div ng-if="restoreVersions.versions && !restoreVersions.errors">
@@ -13,7 +14,8 @@
             <tr>
               <td>
                 <span ng-if="sizeOf(restoreVersions.versions) > 0" translate>Loading data...</span>
-                <span ng-if="sizeOf(restoreVersions.versions) == 0" translate>There are no file versions to restore.</span>
+                <span ng-if="sizeOf(restoreVersions.versions) == 0" translate>There are no file versions to
+                  restore.</span>
               </td>
               <td></td>
             </tr>
@@ -25,13 +27,15 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="restoreVersionSearch"><span translate>Filter by name</span>:&nbsp</label>
-            <input id="restoreVersionSearch" class="form-control" type="text" ng-model="restoreVersions.filters.text" ng-disabled="sizeOf(restoreVersions.versions) == 0">
+            <input id="restoreVersionSearch" class="form-control" type="text" ng-model="restoreVersions.filters.text"
+              ng-disabled="sizeOf(restoreVersions.versions) == 0">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="restoreVersionDate"><span translate>Filter by date</span>:&nbsp</label>
-            <input id="restoreVersionDateRange" class="form-control" ng-disabled="sizeOf(restoreVersions.versions) == 0">
+            <input id="restoreVersionDateRange" class="form-control"
+              ng-disabled="sizeOf(restoreVersions.versions) == 0">
           </div>
         </div>
       </div>
@@ -49,7 +53,9 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#restore-versions-confirmation" ng-if="restoreVersions.versions" ng-disabled="restoreVersions.selectionCount() < 1">
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+      data-target="#restore-versions-confirmation" ng-if="restoreVersions.versions"
+      ng-disabled="restoreVersions.selectionCount() < 1">
       <span class="fas fa-check"></span>&nbsp;<span translate>Restore</span>
     </button>
     <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">

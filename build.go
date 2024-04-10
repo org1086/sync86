@@ -675,7 +675,7 @@ func buildDeb(target target) {
 		"-m", maintainer,
 		"--vendor", maintainer,
 		"--description", target.description,
-		"--url", "https://syncthing.net/",
+		"--url", "https://sync86.com/",
 		"--license", "MPL-2",
 	}
 	for _, dep := range target.debdeps {
