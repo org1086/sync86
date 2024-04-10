@@ -1,6 +1,6 @@
 #!/bin/bash
 
-base=https://docs.syncthing.net/man/
+base=https://docs.sync86.com/man/
 pages=(
 	syncthing.1
 	stdiscosrv.1

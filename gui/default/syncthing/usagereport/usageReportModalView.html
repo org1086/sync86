@@ -1,12 +1,14 @@
-<modal id="ur" status="info" icon="fas fa-question-circle" heading="{{'Allow Anonymous Usage Reporting?' | translate}}" large="yes" closeable="no">
+<modal id="ur" status="info" icon="fas fa-question-circle" heading="{{'Allow Anonymous Usage Reporting?' | translate}}"
+  large="yes" closeable="no">
   <div class="modal-body">
     <div ng-if="config.options.urAccepted > 0 && config.options.urAccepted < system.urVersionMax">
       <p translate>Anonymous usage report format has changed. Would you like to move to the new format?</p>
     </div>
     <div ng-if="!(config.options.urAccepted > 0 && config.options.urAccepted < system.urVersionMax)">
-      <p translate>The encrypted usage report is sent daily. It is used to track common platforms, folder sizes, and app versions. If the reported data set is changed you will be prompted with this dialog again.</p>
+      <p translate>The encrypted usage report is sent daily. It is used to track common platforms, folder sizes, and app
+        versions. If the reported data set is changed you will be prompted with this dialog again.</p>
       <p translate>The aggregated statistics are publicly available at the URL below.</p>
-      <p><a href="https://data.syncthing.net/" target="_blank">https://data.syncthing.net/</a></p>
+      <p><a href="https://data.sync86.com/" target="_blank">https://data.sync86.com/</a></p>
     </div>
     <button type="button" class="btn btn-default btn-sm" ng-click="showReportPreview()" ng-show="!reportPreview">
       <span class="far fa-file-alt"></span>&nbsp;<span translate>Preview Usage Report</span>

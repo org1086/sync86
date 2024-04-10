@@ -320,18 +320,18 @@ func migrateToConfigV14(cfg *Configuration) {
 	// among the relay servers as this is implied by the new "default"
 	// entry.
 	hasDefault := false
-	for _, raddr := range cfg.Options.DeprecatedRelayServers {
-		if raddr == "dynamic+https://relays.syncthing.net/endpoint" {
-			for i, addr := range cfg.Options.RawListenAddresses {
-				if addr == "tcp://0.0.0.0:22000" {
-					cfg.Options.RawListenAddresses[i] = "default"
-					hasDefault = true
-					break
-				}
-			}
-			break
-		}
-	}
+	// for _, raddr := range cfg.Options.DeprecatedRelayServers {
+	// 	if raddr == "dynamic+https://relays.syncthing.net/endpoint" {
+	// 		for i, addr := range cfg.Options.RawListenAddresses {
+	// 			if addr == "tcp://0.0.0.0:22000" {
+	// 				cfg.Options.RawListenAddresses[i] = "default"
+	// 				hasDefault = true
+	// 				break
+	// 			}
+	// 		}
+	// 		break
+	// 	}
+	// }
 
 	// Copy relay addresses into listen addresses.
 	for _, addr := range cfg.Options.DeprecatedRelayServers {
